@@ -1,1 +1,69 @@
+// How to initialize 2d array 
 
+1) using literals
+        int row = 3;
+        int col = 3;
+        int colo = 1;
+        int a[][] = {{1, 1, 1},
+                {1, 0, 1},
+                {1, 1, 1}};
+
+1) Taking input from user 
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter 1st matrix = ");
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] = in.nextInt();   //System.out.print(a[z][q] + " "); for printing 
+            }
+        }
+-----------------------------------------------------------------------------------
+//Transpose of matrix for square matric without using external array
+        for (int i = 0; i < 2; i++) {// row
+            for (int j = 0; j < 3; j++) { // col
+                System.out.print(ans[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+-----------------------------------------------------------------------------------
+        Transpose of matrix for square and non square matric using external array
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                ans[i][j] = a[j][i];
+            }
+        }
+-----------------------------------------------------------------------------------
+         multiplication of matrix logic
+        System.out.println("Ans is matrix = ");
+        for (int i = 0; i < ans.length; i++) {
+            for (int j = 0; j < ans[i].length; j++) {
+                for (int k = 0; k < 2; k++) {
+                    ans[i][j] += (a[i][k] * b[k][j]);
+                }
+            }
+        }
+-------------------------------------------------------------------------
+//   pascle triangle
+        ans[i] = new int[i + 1];
+        for (int i = 0; i < N; i++) {
+            ans[i] = new int[i + 1];
+        /*
+        while intilalizing array we not initialized colum so here
+        In above line ie( ans[i] = new int[i + 1];) by using this line we initilizing it
+        ans[0]=new int[0];
+        ans[1]=new int[2];
+        and[2]=new int[3]; dynamically colum spaces geynyasathi like this otheewise it gives you error
+         */
+            boolean flag = true;
+            for (int j = 0; j <= i; j++) {
+                if (i == j || flag == true) {
+                    ans[i][j] = 1;
+                    flag = false;
+                } else {
+                    ans[i][j] = ans[i - 1][j] + ans[i - 1][j - 1];
+                }
+            }
+            System.out.println();
+  }
+
+//  -------------------------------------------------------------------------
