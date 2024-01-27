@@ -8,6 +8,7 @@
                 {1, 0, 1},
                 {1, 1, 1}};
 
+
 1) Taking input from user 
         Scanner in = new Scanner(System.in);
         System.out.println("Enter 1st matrix = ");
@@ -65,5 +66,8 @@
             }
             System.out.println();
   }
+
+
+
 
 //  -------------------------------------------------------------------------
