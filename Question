@@ -18,14 +18,15 @@
             }
         }
 -----------------------------------------------------------------------------------
-//Transpose of matrix for square matric without using external array
-        for (int i = 0; i < 2; i++) {// row
-            for (int j = 0; j < 3; j++) { // col
-                System.out.print(ans[i][j] + " ");
+//Transpose of matrix for square matric without using external array (In place transpose)
+        for (int i = 0; i < row; i++) {
+            for (int j = i; j < col; j++) {
+                int temp = a[i][j];
+                a[i][j] = a[j][i];
+                a[j][i] = temp;
             }
             System.out.println();
         }
-
 -----------------------------------------------------------------------------------
         Transpose of matrix for square and non square matric using external array
         for (int i = 0; i < 2; i++) {
@@ -66,8 +67,36 @@
             }
             System.out.println();
   }
+-------------------------------------------------------------------------
+// Rotate array by 90 degree 
 
+   public static void reverse(int a[][], int col, int row, int i) {
+        for (int j = 0; j < col / 2; j++) {
+            int temp = a[i][j];
+            a[i][j] = a[i][row - j - 1];
+            a[i][row - j - 1] = temp;
+        }
+    }
 
+    public static void main(String[] args) {
+        int row = 3;
+        int col = 3;
+        int a[][] = {{1, 2, 3}, {5, 6, 7}, {9, 10, 11}};
+        // transpose
+        for (int i = 0; i < row; i++) {
+            for (int j = i; j < col; j++) {
+                int temp = a[i][j];
+                a[i][j] = a[j][i];
+                a[j][i] = temp;
+            }
+            System.out.println();
+        }
 
+        // reverse each row
+        for (int i = 0; i < row; i++) {
+            reverse(a, col, row, i);
+        }
 
-//  -------------------------------------------------------------------------
+        // print final answer
+-----------------------------------------------------------------------------------
+
