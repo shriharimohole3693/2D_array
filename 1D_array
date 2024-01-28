@@ -1,0 +1,17 @@
+   // reverse array using for loop
+        for (int j = 0; j < a.length / 2; j++) {
+            int temp = a[j];
+            a[j] = a[a.length - j - 1];
+            a[a.length - j - 1] = temp;
+        }
+---------------------------------------------------------------------------
+// reverse array using while loop
+        int start = 0;
+        int end = a.length - 1;
+        while (start < end) {
+            int temp = a[start];
+            a[start] = a[end];
+            a[end] = temp;
+            start++;
+            end--;
+        }
