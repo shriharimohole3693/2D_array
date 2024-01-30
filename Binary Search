@@ -24,5 +24,55 @@ public static int binarySearch(int a[]) {
 }
 
 --------------------------------------------------------------------------------------------
+// Binary search on 2d array if the matrix follows two rule
+1) Integer in each row are sorted from left to right
+2) The 1st elemt of each row is greater than the last int of previous row.
 
+ public static boolean bS(int a[][], int target) {
+        int row = a.length;
+        int col = a[0].length;
+        int i = 0;
+        int j = col - 1;
+        while (i < row && j >= 0) {
+            if (a[i][j] == target) {
+                System.out.println(i + " " + j);
+                return true;
+            } else if (a[i][j] < target) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return false;
+    }
 
+both are diff code and both are valid bcoz both follow same rule
+    public static boolean bS(int a[][], int target) {
+        int row = a.length;
+        int col = a[0].length;
+        int s = 0;
+        int e = (row * col) - 1;
+
+        while (s <= e) {
+            int mid = (s + e) / 2;
+            int midelement = a[mid / col][mid % col];
+            if (midelement == target) {
+                return true;
+            } else if (midelement < target) {
+                s = mid + 1;
+            } else {
+                e = mid - 1;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        int a[][] = {{1, 3, 5, 7}, {10, 11, 16, 20}, {28, 30, 34, 60}};
+        int target = 100;
+        System.out.println(bS(a, target));
+        
+    }
+}
+--------------------------------------------------------------------------------------------
