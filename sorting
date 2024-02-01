@@ -14,3 +14,15 @@ selection sort (select from unsoreted array and put it into sorted array)
                     a[min]=temp;
             }
         }
+
+//------------------------------------------------------------------------------------------
+Insertion sort (Take one element from usorted array and put it into sorted arrray but at right place).
+        for(int i=1;i<size;i++){
+            int temp = a[i];
+            int j=i-1;
+            while(j>=0 && a[j] > temp){
+                a[j+1]=a[j];
+                j--;
+            }
+            a[j+1]=temp;
+        }
