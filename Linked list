@@ -62,6 +62,35 @@ while(fast != null && fast.next!= null){
     }
 }
 
+//-----------------------------------------------------------------------------------
+// main logic of merge two linked list without using external space ie in-place..
 
+//Here head is l1 and head1 is l2
 
+public void merge(node head, node head1) {
+        if(head == null) return head1; // means 1st linked list is not exist
+        if(head1 == null) return head; // means 2nd linked list is not exist
+        
+        if (head.data > head1.data) {  //we are choosing smaller head for our linked list if it is not smaller bcoz we want smaller first as per question 
+            node tem = head;
+            head = head1;
+            head1 = tem;
+        }
 
+        node res = head;  // Assigning smaller from l1 and l2 ie head and head1 to res where res is head of newly created linked list 
+        while (head != null && head1 != null) {  
+            node temp = null; 
+            while (head != null && head.data <= head.data) {  moving head till it's less than head1
+                temp = head;
+                head = head.next;
+            }
+
+            temp.next = head1; 
+
+            swap
+            node tempp = head;
+            head = head1;
+            head1 = tempp;
+        }
+        return res; // returning head of sorted linked list
+    }
