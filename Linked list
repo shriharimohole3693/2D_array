@@ -1,0 +1,67 @@
+// Tortoise and Hare algo templete/algorithm
+node slow = head;
+node fast = head;
+while(fast != null && fast.next!= null){
+  slow =slow.next;
+  fast=fast.next.next;
+}
+
+//---------------------------------------------------------------------
+// merge two linked list using external space 
+
+    public void insertAtbegin(int data) {
+        // int data
+        node newnode = new node(data);
+        if (head == null) {
+            head = newnode;
+        } else {
+            newnode.next = head;
+            head = newnode;
+        }
+    }
+
+    public void display(node temp) {
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+
+// main logic of merging using extra space 
+    public void merge(node head, node head1) {
+        node dummy = new node(0); // Initialize dummy as a new node
+        node newhead = dummy;
+        while (head != null && head1 != null) {
+            if (head.data <= head1.data) {
+                node newnode = new node(head.data);
+                dummy.next = newnode;
+                head = head.next;
+                dummy = dummy.next;
+            } else {
+                node newnode = new node(head1.data);
+                dummy.next = newnode;
+                head1 = head1.next;
+                dummy = dummy.next;
+            }
+        }
+        while (head != null) {
+            node newnode = new node(head.data);
+            dummy.next = newnode;
+            head = head.next;
+            dummy = dummy.next;
+        }
+        while (head1 != null) {
+            node newnode = new node(head1.data);
+            dummy.next = newnode;
+            head1 = head1.next;
+            dummy = dummy.next;
+        }
+        dummy.next = null;
+        display(newhead.next);
+    }
+    }
+}
+
+
+
+
