@@ -65,6 +65,7 @@ while(fast != null && fast.next!= null){
 //-----------------------------------------------------------------------------------
 // main logic of merge two linked list without using external space ie in-place..
 
+//video link -> https://www.youtube.com/watch?v=8ocB7a_c-Cc
 //Here head is l1 and head1 is l2
 
 public void merge(node head, node head1) {
