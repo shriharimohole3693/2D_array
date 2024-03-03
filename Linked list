@@ -7,7 +7,7 @@ while(fast != null && fast.next!= null){
 }
 
 //---------------------------------------------------------------------
-// merge two linked list using external space 
+// merge two SORTED linked list using external space 
 
     public void insertAtbegin(int data) {
         // int data
@@ -63,7 +63,7 @@ while(fast != null && fast.next!= null){
 }
 
 //-----------------------------------------------------------------------------------
-// main logic of merge two linked list without using external space ie in-place..
+// main logic of merge two SORTED linked list without using external space ie in-place..
 
 //video link -> https://www.youtube.com/watch?v=8ocB7a_c-Cc
 //Here head is l1 and head1 is l2
