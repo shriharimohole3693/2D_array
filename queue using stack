@@ -1,0 +1,76 @@
+//    implemented queue using stack
+// 
+public class Stipend {
+    int cap;
+    int s1[];
+    int s2[];
+
+    Stipend(int size) {
+        this.cap = size;
+        s1 = new int[size];
+        s2 = new int[size];
+    }
+
+    public static int t1 = -1;
+    public static int t2 = -1;
+    public static int count = 0;
+
+    public void enque(int num) {
+        push1(num);
+        count++;
+    }
+
+    public void deque() {
+        for (int i = 0; i < count; i++) {
+            push2(pop1());
+        }
+        pop2();
+        count--;
+        for (int i = 0; i < count; i++) {
+            push1(pop2());
+        }
+    }
+
+    public void push1(int num) {
+        if (t1 == (cap - 1)) {
+            System.out.print("s1 is full");
+        } else {
+            s1[++t1] = num;
+        }
+    }
+
+    public void push2(int num) {
+//        if (t1 == (cap - 1)) {
+//            System.out.print("s1 is full");
+//        }
+        s2[++t2] = num;
+
+    }
+
+    public int pop1() {
+        return s1[t1--];
+    }
+
+    public int pop2() {
+        return s2[t2--];
+    }
+
+
+    public void disp() {
+        for (int i = 0; i < count; i++) {
+            System.out.print(s1[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Stipend s = new Stipend(5);
+        s.enque(1);
+        s.enque(2);
+        s.enque(3);
+        s.enque(4);
+        s.disp();
+        s.deque();
+        System.out.println();
+        s.disp();
+    }
+}
